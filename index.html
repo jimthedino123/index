@@ -677,3 +677,111 @@
 
 </body>
 </html>
+
+
+
+
+
+  <style>
+    /* Optional: base styles */
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+
+.renovation-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.renovation-box {
+  background: white;
+  border-radius: 20px;
+  padding: 2em;
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+
+.face {
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3em;
+}
+
+.rotated-bracket {
+  display: inline-block;
+  transform: rotate(90deg);
+}
+
+.message {
+  margin-top: 1em;
+  font-size: 1.1em;
+}
+
+  </style>
+</head>
+<body>
+
+
+<!-- Main page content can go here -->
+
+
+<script>
+(function () {
+  const now = new Date();
+  const start = new Date("2025-05-17T21:00:00Z"); // 10pm BST
+  const end = new Date("2025-05-19T11:00:00Z");   // 12pm BST
+
+  if (now >= start && now <= end) {
+    const overlay = document.createElement("div");
+    overlay.className = "renovation-overlay";
+
+    const box = document.createElement("div");
+    box.className = "renovation-box";
+
+    const face = document.createElement("div");
+    face.className = "face";
+
+    const leftX = document.createElement("span");
+    leftX.textContent = "x";
+
+    const rotatedBracket = document.createElement("span");
+    rotatedBracket.textContent = "( ";
+    rotatedBracket.className = "rotated-bracket";
+
+    const rightX = document.createElement("span");
+    rightX.textContent = "x";
+
+    face.appendChild(leftX);
+    face.appendChild(rotatedBracket);
+    face.appendChild(rightX);
+
+    const message = document.createElement("p");
+    message.className = "message";
+    message.textContent = "This site is going under some renovation. Come back another time.";
+
+    box.appendChild(face);
+    box.appendChild(message);
+    overlay.appendChild(box);
+    document.body.appendChild(overlay);
+  }
+})();
+</script>
+
+
+</body>
+</html>
+
+
