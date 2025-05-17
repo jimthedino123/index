@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snug Pine - Cosy Autumn Hoodie</title>
+    <style>
+        :root {
+            --primary: #D98841;
+            --primary-dark: #BC6D38;
+            --secondary: #8C5E32;
+            --text-dark: #5A4431;
+            --text-light: #FFFFFF;
+            --bg-light: #FFF8EF;
+            --bg-cream: #F7F3E8;
+            --accent: #C19052;
+            --footer: #704B1C;
+            --footer-text: #E9DCC9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-cream);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--primary);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            height: 50px;
+            width: 50px;
+            background-color: #704B1C;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .brand-name {
+            margin-left: 15px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--bg-light);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            padding: 80px 0;
+            text-align: center;
+            background-image: linear-gradient(rgba(188, 109, 56, 0.9), rgba(188, 109, 56, 0.7)), url('/api/placeholder/1470/500');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--text-dark);
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            color: var(--secondary);
+            font-size: 36px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+            justify-items: center;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            max-width: 350px;
+            width: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .product-image {
+            height: 100px;
+            width: 100%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 14px;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 20px;
+            color: var(--secondary);
+            margin-bottom: 10px;
+        }
+        
+        .product-description {
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 22px;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        .product-btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+        
+        .product-btn:hover {
+            background-color: var(--secondary);
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+            background-color: var(--bg-cream);
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .feature-icon {
+            font-size: 50px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .feature-title {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--footer);
+            color: var(--footer-text);
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-section ul li a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-section ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            color: var(--footer-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Purchase Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--text-dark);
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: var(--primary);
+        }
+        
+        .modal-title {
+            color: var(--secondary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .purchase-form {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+        
+        .form-group select,
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group select:focus,
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+        
+        .product-details {
+            background-color: var(--bg-cream);
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .product-id {
+            font-family: monospace;
+            background-color: #f0f0f0;
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+        
+        .send-email-btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+        .send-email-btn:hover {
+            background-color: var(--primary-dark);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            nav ul li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+    <div class="logo" style="overflow: hidden; background: none; padding: 0;">
+        <img src="https://dl.dropboxusercontent.com/scl/fi/vbf1fqlqrmqq8nehqt09u/Photo-17-05-2025-6-24-44-pm.jpg?rlkey=qanpnp51yaaqe15gzolg8qtx6&st=rjqtngb2&dl=1
+" alt="Snug Pine Logo" style="width: 100%; height: 100%; object-fit: cover; border-radius: 50%;">
+    </div>
+    <div class="brand-name">Snug Pine</div>
+</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>2025 Collection</h1>
+            <p>Cosy, comfortable, and stylish clothing for any season. Discover our signature hoodie and embrace the cosy vibes.</p>
+            <a href="#products" class="btn">Shop Now</a>
+        </div>
+    </section>
+    
+ <section class="products" id="products">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Products</h2>
+        </div>
+
+        <div class="products-grid" id="products-container">
+            <!-- Single Product Card -->
+            <div class="product-card" style="max-width: 320px; margin: auto; border: 1px solid #ddd; padding: 16px; border-radius: 8px;">
+                <div class="product-image" style="text-align: center;">
+                    <img src="img.png" alt="product img" style="width: 100%; height: auto; border-radius: 6px;">
+                </div>
+                <div class="product-info" style="padding-top: 12px;">
+                    <h3 class="product-title" style="margin: 0 0 8px;">Snug Pine Hoodie</h3>
+                    <p class="product-description" style="margin: 0 0 12px; font-size: 14px; color: #444;">
+                        Coloured hoodie with a stunning front and back print — made for comfort and style.
+                    </p>
+                    <div class="product-price" style="font-weight: bold; font-size: 16px; margin-bottom: 12px;">£17.99</div>
+                    <a href="#" class="product-btn" onclick="openPurchaseModal()" style="display: inline-block; padding: 8px 16px; background-color: #333; color: #fff; text-decoration: none; border-radius: 4px;">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+    
+    <footer id="contact">
+    <div class="container">
+        <div class="footer-content" style="justify-content: center; text-align: center;">
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <p>Visit our YouTube channel for styling tips and product showcases</p>
+                <div class="social-links" style="justify-content: center; margin-top: 20px;">
+                    <a href="https://www.youtube.com/@snugpine" target="_blank" style="font-size: 18px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                        @snugpine
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Snug Pine. All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+    
+    <!-- Purchase Modal -->
+    <div id="purchase-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <h2 class="modal-title">Purchase Snug Pine Hoodie</h2>
+            
+            <div class="product-details">
+                <p>Price: £59.99</p>
+                <p>Product ID: <span id="modal-product-id" class="product-id">JKL-7839215460</span></p>
+            </div>
+            
+            <form id="purchase-form" class="purchase-form" onsubmit="sendPurchaseEmail(event)">
+                <div class="form-group">
+                    <label for="size">Size:</label>
+                    <select id="size" name="size" required>
+                        <option value="">Select a Size</option>
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                        <option value="XXL">XXL</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="colour">Colour:</label>
+                    <select id="colour" name="colour" required>
+                        <option value="">Select a Colour</option>
+                        <option value="Black">Black</option>
+                        <option value="White">White</option>
+                        <option value="Camel">Camel</option>
+                    </select>
+                </div>
+                
+                <input type="hidden" id="product-id-input" name="productId" value="JKL-7839215460">
+                <input type="hidden" id="product-name-input" name="productName" value="Snug Pine Hoodie">
+                <input type="hidden" id="product-price-input" name="productPrice" value="59.99">
+                
+                <button type="submit" class="send-email-btn">Purchase Now</button>
+            </form>
+        </div>
+    </div>
+    
+
+<script>
+    // Generate random product ID
+    function generateRandomProductId() {
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const digits = '1234567890';
+        
+        let id = '';
+        
+        // Add 3 random letters
+        for (let i = 0; i < 3; i++) {
+            id += letters.charAt(Math.floor(Math.random() * letters.length));
+        }
+        
+        id += '-';
+        
+        // Add 11 random digits
+        for (let i = 0; i < 11; i++) {
+            id += digits.charAt(Math.floor(Math.random() * digits.length));
+        }
+        
+        return id;
+    }
+
+    // Set random product ID on page load
+    window.addEventListener('load', function() {
+        const randomId = generateRandomProductId();
+        document.getElementById('modal-product-id').textContent = randomId;
+        document.getElementById('product-id-input').value = randomId;
+    });
+
+    // Open modal function
+    function openPurchaseModal() {
+        document.getElementById('purchase-modal').style.display = 'flex';
+    }
+
+    // Close modal function
+    function closeModal() {
+        document.getElementById('purchase-modal').style.display = 'none';
+    }
+
+    // Send purchase email function using mailto
+    function sendPurchaseEmail(event) {
+        event.preventDefault();
+        
+        const size = document.getElementById('size').value;
+        const colour = document.getElementById('colour').value;
+        const productId = document.getElementById('product-id-input').value;
+
+        const subject = encodeURIComponent("Purchase Request");
+        const body = encodeURIComponent(
+            "Product: Snug Pine Hoodie\n" +
+            "Size: " + size + "\n" +
+            "Colour: " + colour + "\n\n" +
+            "Product ID: " + productId
+        );
+
+        const mailtoLink = `mailto:snugpine@europe.com?subject=${subject}&body=${body}`;
+        window.location.href = mailtoLink;
+
+        closeModal();
+    }
+
+    // Close modal when clicking outside
+    window.addEventListener('click', function(event) {
+        const modal = document.getElementById('purchase-modal');
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
+</script>
+
+</body>
+</html>
