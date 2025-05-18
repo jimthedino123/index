@@ -6,11 +6,7 @@
 - **Falling Leaves Hoodie** - £17.99  
 - **Mahjong Tile Hoodie** - £17.99  
 - **Single Maple Leaf Hoodie** - £17.99  
-- **Autumn Tree Hoodie** - £17.99  
-- **Crimson Pines Hoodie** - £17.99  
-- **Forest Fade Hoodie** - £17.99  
-- **Brown Sugar Fog Hoodie** - £17.99  
-- **Squirrel Track Hoodie** - £17.99  
+- **Autumn Tree Hoodie** - £17.99   
 
 ## T-SHIRTS?
 - **Maybe!!**
